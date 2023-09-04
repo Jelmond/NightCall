@@ -1,0 +1,14 @@
+@use "../../assets/styles/index.scss" as *;
+
+.shaw-box{
+    width: 100%;
+    // align-items: center;
+    // justify-content: center;
+    padding: rm(35) rm(120) rm(0) rm(120);
+
+    &__container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Две колонки с одинаковой шириной */
+        grid-gap: 35px 50px;
+    }
+}

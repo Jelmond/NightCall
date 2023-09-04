@@ -1,0 +1,30 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.price-button{
+    
+    div{
+        color: white;
+        background-color: #E4002B;
+        border-radius: rm(3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p{
+            font-size: font(6);
+        }
+        
+        .button-img{
+            width: rm(10);
+            height: rm(11);
+            margin-left: rm(13);
+            margin-right: rm(8);
+        }
+
+        .pen-img{
+            width: rm(21);
+            height: rm(15);
+            margin-right: rm(9);
+        }
+    }
+}

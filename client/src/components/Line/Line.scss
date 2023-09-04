@@ -1,0 +1,10 @@
+@use "../../assets/styles/index.scss" as *;
+
+
+.line{
+    height: rm(43);
+    width: 100%;
+    background: rgba(0, 0, 0, 0.20);
+    position: absolute;
+    top: rm(80);
+}

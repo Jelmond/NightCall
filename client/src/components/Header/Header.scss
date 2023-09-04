@@ -1,0 +1,33 @@
+@use "../../assets/styles/index.scss" as *;
+
+
+.header{
+    padding: rm(9) rm(23) rm(0) rm(17);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &__right{
+        display: flex;
+        align-items: center;
+
+        div{
+            margin-right: rm(17);
+            margin-left: rm(7);
+            text-align: right;
+            color: color(white-100);
+
+            p:first-child{
+                font-size: font(14);
+            }
+
+            p:last-child{
+                font-size: font(12);
+            }
+        }
+    }
+}

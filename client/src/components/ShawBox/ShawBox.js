@@ -1,0 +1,39 @@
+import './ShawBox.scss';
+import moscow from './images/moscow.png'
+import krispy from './images/krispy.png'
+import daivinchi from './images/daivinchi.png'
+import chillHot from './images/chillHot.png'
+import cezar from './images/cezar.png'
+import teriyaki from './images/teriyaki.png'
+import tropikana from './images/tropikana.png'
+import vostochnaya from './images/vostochnaya.png'
+import ShawCard from './ShawCard/ShawCard';
+
+
+
+function ShawBox() {
+  
+    const cards = [
+        [moscow, 'Московская', 'Сырный лаваш, курочка гриль, огурчик соленый, капуста, помидор, морковь «По-Корейски», соус.', '12.20 Br.'],
+        [vostochnaya, 'Восточная', 'Сырный лаваш, курочка гриль, огурчик соленый, капуста, помидор, картошка фри, соус.', '12.50 Br.'],
+        [teriyaki, 'Терияки', 'Сырный лаваш, курочка гриль, огурчик свежий, капуста, помидор, сыр, соус Терияки.', '13.70 Br.'],
+        [cezar, 'Цезарь', 'Сырный лаваш, курочка гриль, капуста, помидор, сухарики, сыр, соус.', '13.70 Br.'],
+        [krispy, 'Криспи', 'Сырный лаваш, наггетсы, луковые кольца во фритюре, шампиньоны, капуста, помидор, соус.', '14.80 Br.'],
+        [chillHot, 'Чили-Хот', 'Сырный лаваш, курочка гриль, огурчик соленый, капуста, помидор, шампиньоны, соус чили + соус.', '14.80 Br.'],
+        [daivinchi, 'Давинчи', 'Сырный лаваш, курочка гриль, помидор, колбаска «Пеперони», сыр, соус.', '14.80 Br.'],
+        [tropikana, 'Тропикана', 'Сырный лаваш, курочка гриль, ананас, ветчина, капуста, сыр, соус.', '14.80 Br.']
+    ]
+    
+
+    return (
+    <div className="shaw-box">
+        <div className="shaw-box__container">
+            {cards.map((card) => (
+                <ShawCard image={card[0]} title={card[1]} info={card[2]} price={card[3]} key={card[1]}/>
+            ))}
+        </div>
+    </div>
+  );
+}
+
+export default ShawBox;

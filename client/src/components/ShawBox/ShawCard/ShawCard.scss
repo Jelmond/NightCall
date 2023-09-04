@@ -1,0 +1,37 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.shaw-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // width: rm(120);
+    height: rm(191);
+    margin-bottom: rm(35);
+    border-radius: rm(8);
+    border: 1px white solid;
+    padding-top: rm(5);
+
+    img{
+        width: rm(120);
+        height: rm(80);
+    }
+
+    &__container{
+        color: white;
+        text-align: center;
+        width: rm(95);
+
+
+        p:first-child{
+            font-size: font(11);
+            margin-bottom: rm(5);
+            margin-top: rm(5);
+        }
+
+        p:last-child{
+            font-size: font(6);
+            height: rm(38);
+        }
+    }
+}

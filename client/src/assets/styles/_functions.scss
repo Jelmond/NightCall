@@ -1,0 +1,17 @@
+@use "sass:math";
+
+$font-base: 16;
+@function strip-unit($number) {
+    @if type-of($number) == "number" and not unitless($number) {
+        @return ($number / ($number * 0 + 1));
+    }
+    @return $number;
+}
+@function rm($px) {
+    @return #{math.div(strip-unit($px), strip-unit($font-base))}rem;
+  }
+  
+  @function em($px) {
+    @return #{math.div(strip-unit($px), strip-unit($font-base))}em;
+  }
+  

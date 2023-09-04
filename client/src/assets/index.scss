@@ -1,0 +1,40 @@
+@use "./styles/_colors" as *;
+@use "./styles/_grid" as *;
+@use "./styles/_typography" as *;
+@use "./styles/_functions" as *;
+
+
+// @import "./fonts/stylesheet.css";
+@import "./styles/_normalize";
+
+
+:root {
+
+    @each $name,
+    $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+
+    @each $name,
+    $font in $fonts {
+        --font-size-#{$name}: #{$font};
+    }
+
+    @each $name,
+    $point in $breakpoints {
+        --breakpoint-#{$name}: #{$point};
+    }
+
+    @each $name,
+    $size in $breakpoints-fonts {
+        --breakpoint-font-#{$name}: #{$size};
+    }
+}
+
+html {
+    // @include font-work-regular;
+    font-size: var(--breakpoint-font-xlg);
+    @include generate-grid;
+    background-image: url('../images/bgImage.png');
+    overflow: hidden;
+}

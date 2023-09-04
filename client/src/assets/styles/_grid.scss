@@ -1,0 +1,91 @@
+@use 'sass:map';
+
+$breakpoints: (
+  xlg: 1920px,
+  lg: 1440px,
+  md: 1080px,
+  xsm: 576px
+);
+
+$breakpoints-fonts: (
+  xlg: 0.83333333333333vw, 
+  lg: 1.25vw,
+  md: 1.48148148vw,
+  xsm: 2.77778vw,
+);
+
+@function point($name) {
+  @return map.get($breakpoints, $name);
+}
+
+@mixin generate-grid {
+  @each $name, $size in $breakpoints-fonts {
+    @media screen and (max-width: point($name)) {
+      font-size: var(--breakpoint-font-#{$name});
+    }
+  }
+}
+
+@mixin xlg {
+  @media screen and (max-width: point(xlg)) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (max-width: point(lg)) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (max-width: point(md)) {
+    @content;
+  }
+}
+
+
+@mixin xsm {
+  @media screen and (max-width: point(xsm)) {
+    @content;
+  }
+}
+
+@mixin lg-1440-800 {
+  @media screen and (min-width: 1081px) and (max-width: point(lg)) {
+    @media screen and (min-aspect-ratio: 1440/800) {
+      @content;
+    }
+  }
+}
+
+@mixin xlg-1920-1000 {
+  @media screen and (min-width: 1441px) {
+    @media screen and (min-aspect-ratio: 1920/1000) {
+      @content;
+    }
+  }
+}
+@mixin xlg-1920-850 {
+  @media screen and (min-width: 1441px) {
+    @media screen and (min-aspect-ratio: 1920/850) {
+      @content;
+    }
+  }
+}
+
+@mixin lg-1300-500 {
+  @media screen and (min-width: 1081px) and (max-width: 1440px) {
+    @media screen and (min-aspect-ratio: 1300/500) {
+      @content;
+     }
+   }
+}
+
+@mixin lg-800-500 {
+  @media screen and (min-width: 577px) and (max-width: 1080px) {
+    @media screen and (min-aspect-ratio: 800/500) {
+      @content;
+     }
+   }
+}
