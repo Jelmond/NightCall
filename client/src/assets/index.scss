@@ -36,5 +36,4 @@ html {
     font-size: var(--breakpoint-font-xlg);
     @include generate-grid;
     background-image: url('../images/bgImage.png');
-    overflow: hidden;
 }

@@ -16,7 +16,7 @@ function ShawCard({image, title, info, price}) {
                 {info}
             </p>
         </div>
-        <PriceButton>{price}</PriceButton>
+        <PriceButton image={image} title={title} price={price}>{price}</PriceButton>
     </div>
   );
 }

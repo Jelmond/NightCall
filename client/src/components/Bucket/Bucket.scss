@@ -1,0 +1,80 @@
+@use '../../assets/styles/index.scss' as *;
+
+
+.bucket{
+    display: flex;
+    flex-direction: column;
+    padding: rm(64);
+    
+    &__price{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: rm(30);
+
+        p{
+            color: white;
+            font-size: font(14);
+        }
+
+    }
+
+    &__over{
+        color: white;
+        margin-top: rm(30);
+    }
+
+    &__text{
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+
+        >:first-child{
+            font-size: font(18);
+            margin-bottom: rm(25);
+            color: white;
+        }
+        
+        >:last-child{
+            font-size: font(12);
+            text-decoration: underline;
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    &__information{
+        display: flex;
+        flex-direction: column;
+
+        &__section{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .choose{
+                color: white;
+            }
+
+            >:first-child{
+                display: flex;
+                align-items: center;
+
+                img{
+                    width: rm(60);
+                    height: rm(60);
+                    margin-right: rm(9);
+                }
+    
+                p{
+                    color: white;
+                    font-size: font(12);
+                }
+            }
+
+        }
+    }
+}
