@@ -4,6 +4,10 @@ import useStore from '../../store/store';
 
 function Bucket() {
   
+  let tg = window.Telegram.WebApp
+
+  console.log(tg)
+
   const order = useStore((state) => state.order)
   const [thePrice, setThePrice] = useState(0)
 
@@ -23,6 +27,7 @@ function Bucket() {
   const handleOver = (e) => {
     e.preventDefault()
     console.log(order)
+    tg.sendData(JSON.stringify(order))
   }
 
 

@@ -11,6 +11,7 @@ import Drinks from './components/Drinks/Drinks';
 import Bucket from './components/Bucket/Bucket';
 
 function App() {
+
   return (
     <div className="App">
         <Layout>
