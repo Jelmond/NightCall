@@ -6,10 +6,12 @@ function Bucket() {
   
   let tg = window.Telegram.WebApp
 
-  console.log(tg)
+  
+
 
   const order = useStore((state) => state.order)
   const [thePrice, setThePrice] = useState(0)
+  const [adress, setAdress] = useState('')
 
   const handleCleaner = (e) => {
     e.preventDefault()
@@ -26,10 +28,20 @@ function Bucket() {
 
   const handleOver = (e) => {
     e.preventDefault()
-    console.log(order)
-    tg.sendData(JSON.stringify(order))
+    console.log(order, adress)
+
+    const tgData = [{
+      order: order,
+      adress: adress,
+      wholePrice: thePrice
+    }]
+
+    tg.sendData(JSON.stringify(tgData))
   }
 
+  const onChange = (e) => {
+    setAdress(e.target.value)
+  }
 
   return (
 
@@ -56,6 +68,7 @@ function Bucket() {
               </div>
           ))}
         </div>
+        <input value={adress} onChange={onChange} placeholder='Введите адрес доставки'/>
         <div className='bucket__price'>
             <p>
               Итоговая цена:
