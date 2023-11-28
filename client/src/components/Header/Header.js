@@ -13,7 +13,7 @@ function Header() {
         <div className="header__right">
             <img src={clockImage} alt="" width='21' height='21'/>
             <div>
-                <p>С 23.00 до 07.00</p>
+                <p>С 23.00 до 05.00</p>
                 <p>прием заказов</p>
             </div>
             <img src={bucketImage} alt="" width='28' height='27'/>

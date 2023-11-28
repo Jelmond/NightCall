@@ -1,11 +1,12 @@
-import './ShawCard.scss';
+import './DrinkCard.scss';
 import PriceButton from '../../../UI/Buttons/PriceButton/PriceButton';
 import useStore from '../../../store/store';
 
 
-function ShawCard({image, title, info, price, isSpicy}) {
+function DrinkCard({image, title, info, price}) {
 
     const addToOrder = useStore((state) => state.addToOrder);
+    
     const handleButtonClick = () => {
         const item = { title, price, image};
 
@@ -13,12 +14,12 @@ function ShawCard({image, title, info, price, isSpicy}) {
     };
 
   return (
-    <div className="shaw-card" onClick={handleButtonClick}>
-        <div className='shaw-card__wrapper'>
+    <div className="drink-card" onClick={handleButtonClick}>
+        <div className='drink-card__wrapper'>
             <picture className='imgWrapper'>
                 <img src={image} alt='' width='115' height='77'/>
             </picture>
-            <div className='shaw-card__container'>
+            <div className='drink-card__container'>
                 <p>
                     {title}
                 </p>
@@ -27,9 +28,9 @@ function ShawCard({image, title, info, price, isSpicy}) {
                 </p>
             </div>
         </div>
-        <PriceButton image={image} title={title} price={price} isSpicy={isSpicy}>{price}</PriceButton>
+        <PriceButton image={image} title={title} price={price}>{price}</PriceButton>
     </div>
   );
 }
 
-export default ShawCard;
+export default DrinkCard;

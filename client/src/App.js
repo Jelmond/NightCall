@@ -18,7 +18,7 @@ function App() {
             <ShawBox/>
             {/* <KFC></KFC> */}
             {/* <Mac></Mac> */}
-            {/* <Drinks></Drinks> */}
+            <Drinks></Drinks>
             <Bucket></Bucket>
         </Layout>
     </div>

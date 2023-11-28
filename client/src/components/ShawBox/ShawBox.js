@@ -35,6 +35,9 @@ function ShawBox() {
                 <ShawCard image={card[0]} title={card[1]} info={card[2]} price={card[3]} key={card[1]}/>
             ))}
         </div>
+        <p className='difference'>
+            Внешний вид блюда может отличаться от изображения на картинке
+        </p>
     </div>
   );
 }

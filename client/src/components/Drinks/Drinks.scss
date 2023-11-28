@@ -4,13 +4,36 @@
     width: 100%;
     // align-items: center;
     // justify-content: center;
-    padding: rm(35) rm(120) rm(0) rm(120);
+    padding-top: rm(35);
     position: relative;
 
     &__container{
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Две колонки с одинаковой шириной */
-        grid-gap: 35px 50px;
+        grid-gap: rm(20) rm(30);
+    }
+
+    .difference{
+        color: #868686;
+        font-size: font(20);
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: rm(30);
+    }
+
+    .semiTitle{
+        color: white;
+        display: flex;
+        align-items: center;
+        margin-top: rm(40);
+        margin-bottom: rm(45);
+        font-size: font(20);
+
+        svg{
+            width: rm(30);
+            height: rm(36);
+            margin-right: rm(5);
+        }
     }
 
     &__title{

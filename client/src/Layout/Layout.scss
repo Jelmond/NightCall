@@ -1,8 +1,12 @@
 @use "../assets/styles/index.scss" as *;
 
 .layout{
+    padding-left: rm(30);
+    padding-right: rm(30);
 
     &__container{
         padding-top: rm(133);
+        overflow: hidden;
+        width: 100%;
     }
 }

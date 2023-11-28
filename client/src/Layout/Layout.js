@@ -9,7 +9,6 @@ function Layout({children}) {
         <Header/>
         <Line/>
         <div className="layout__container">
-            <Header/>
             {children}
         </div>
     </div>

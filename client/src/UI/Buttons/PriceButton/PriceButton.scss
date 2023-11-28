@@ -9,22 +9,59 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
 
         p{
-            font-size: font(6);
+            font-size: font(16);
+            user-select: none;
         }
         
         .button-img{
-            width: rm(10);
-            height: rm(11);
+            width: rm(16);
+            height: rm(20);
             margin-left: rm(13);
             margin-right: rm(8);
+            transition: opacity .7s ease;
+            cursor: pointer;
+
+            
+            &:hover{
+                opacity: 0.7;
+            }
         }
 
         .pen-img{
-            width: rm(21);
-            height: rm(15);
+
             margin-right: rm(9);
+            position: relative;
+            margin-bottom: rm(-10);
+            transition: opacity .7s ease;
+            padding: rm(5) rm(0) rm(5) rm(5);
+            background-color: #A0001E;
+
+
+            &:hover{
+                opacity: 0.7;
+            }
+
+            svg{
+                // position: absolute;
+                // top: 0;
+                // left: 0;
+                width: rm(35);
+                height: rm(30);
+            }
+        }
+
+        .pen-img-s{
+
+            margin-right: rm(9);
+            position: relative;
+            margin-bottom: rm(-10);
+            transition: opacity .7s ease;
+            padding: rm(5) rm(0) rm(5) rm(5);
+            width: rm(40);
+            height: rm(40);
         }
     }
 }
