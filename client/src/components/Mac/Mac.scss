@@ -21,6 +21,21 @@
         margin-top: rm(30);
     }
 
+    .semiTitle{
+        color: white;
+        display: flex;
+        align-items: center;
+        margin-top: rm(50);
+        margin-bottom: rm(40);
+        font-size: font(20);
+
+        svg{
+            width: rm(20);
+            height: rm(26);
+            margin-right: rm(5);
+        }
+    }
+
     .navigation{
         display: flex;
         gap: rm(5);

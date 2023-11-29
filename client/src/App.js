@@ -15,9 +15,9 @@ function App() {
   return (
     <div className="App">
         <Layout>
-            <ShawBox/>
+            {/* <ShawBox/> */}
             {/* <KFC></KFC> */}
-            {/* <Mac></Mac> */}
+            <Mac></Mac>
             <Drinks></Drinks>
             <Bucket></Bucket>
         </Layout>
