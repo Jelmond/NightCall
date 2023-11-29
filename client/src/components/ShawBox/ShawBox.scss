@@ -24,7 +24,11 @@
         p:not(:first-child){
             border-left: 1px solid white;
             padding-left: rm(5);
+            cursor: pointer;
+        }
 
+        p{
+            cursor: pointer;
         }
     }
 

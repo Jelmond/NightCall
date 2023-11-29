@@ -6,6 +6,13 @@
     flex-direction: column;
     padding: rm(64);
     
+    input{
+        margin-top: rm(20);
+        background: none;
+        border: none;
+        color: white;
+    }
+
     &__price{
         display: flex;
         align-items: center;
@@ -14,7 +21,7 @@
 
         p{
             color: white;
-            font-size: font(14);
+            font-size: font(20);
         }
 
     }
@@ -33,22 +40,24 @@
 
 
         >:first-child{
-            font-size: font(18);
+            font-size: font(24);
             margin-bottom: rm(25);
             color: white;
         }
         
         >:last-child{
-            font-size: font(12);
+            font-size: font(20);
             text-decoration: underline;
             color: white;
             cursor: pointer;
+            margin-top: rm(-10);
         }
     }
 
     &__information{
         display: flex;
         flex-direction: column;
+        gap: rm(15);
 
         &__section{
             display: flex;
@@ -57,6 +66,7 @@
 
             .choose{
                 color: white;
+                font-size: font(20);
             }
 
             >:first-child{
@@ -64,14 +74,14 @@
                 align-items: center;
 
                 img{
-                    width: rm(60);
-                    height: rm(60);
+                    width: rm(120);
+                    height: rm(120);
                     margin-right: rm(9);
                 }
     
                 p{
                     color: white;
-                    font-size: font(12);
+                    font-size: font(20);
                 }
             }
 

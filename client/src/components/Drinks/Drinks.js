@@ -7,6 +7,7 @@ import sprite from './images/sprite.png'
 import colaSugar from './images/colaSugar.png'
 import fanta from './images/fanta.png'
 import useStore from '../../store/store';
+import { useEffect, useRef } from 'react';
 
 
 
@@ -19,10 +20,22 @@ function Drinks() {
         [fanta, 'Фанта (0,5)', 4.00],
     ]
 
-    
+    const bucketRef = useRef(null)
+
+    const isBucketClicked = useStore((state) => (state.isBucketClicked))
+
+    useEffect(() => {
+        if(isBucketClicked) {
+            window.scrollTo({
+                top: bucketRef.current.offsetTop,
+                behavior: 'smooth',
+              });
+              useStore.setState({isBucketClicked: false})
+        }
+    }, [isBucketClicked])
 
     return (
-    <div className="drinks">
+    <div className="drinks" ref={bucketRef}>
         {/* <p className="shaw-box__title">Холодные напитки, соусы</p>
         <img src={DrinksLogo} alt='' width='42' height='51' className='shaw-box__logo'/> */}
         <div className='semiTitle'>

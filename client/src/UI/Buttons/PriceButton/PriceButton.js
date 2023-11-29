@@ -5,8 +5,18 @@ import useStore from '../../../store/store';
 import { useState } from 'react';
 
 function PriceButton({ children, title, price, image, isSpicy}) {
+
+
     const [isClicked, setIsClicked] = useState(false)
 
+    const addToOrder = useStore((state) => state.addToOrder);
+    const handleButtonClick = () => {
+        const spice = isSpicy ? !isClicked : false
+
+        const item = { title, price, image, spice};
+
+        addToOrder(item);
+    };
 
 
     return (
@@ -56,8 +66,8 @@ function PriceButton({ children, title, price, image, isSpicy}) {
                 </div>
                 : <div className='pen-img-s'></div>
                 }
-                <p>{children} Br.</p>
-                <svg className='button-img' width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <p onClick={handleButtonClick}>{children} Br.</p>
+                <svg onClick={handleButtonClick} className='button-img' width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.96222 0H1.03778C0.641044 0 0.377042 0.274848 0.377042 0.68788L0 10.3129C0 10.7252 0.264002 11 0.660006 11H9.33926C9.73527 11 10 10.7252 10 10.3129L9.6215 0.68788C9.6215 0.274848 9.35823 0 8.96222 0ZM7.64148 3.43788C7.63937 4.16655 7.36039 4.86474 6.86547 5.37999C6.37056 5.89524 5.69991 6.18568 5 6.18788C4.29996 6.18588 3.62913 5.89553 3.13406 5.38026C2.63898 4.86499 2.35991 4.16668 2.35779 3.43788V2.75H3.6778V3.43788C3.6778 4.19409 4.2729 4.81212 4.99927 4.81212C5.72564 4.81212 6.31928 4.19409 6.31928 3.43788V2.75H7.64075L7.64148 3.43788Z" fill="white"/>
                 </svg>
             </div>

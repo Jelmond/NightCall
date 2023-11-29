@@ -5,15 +5,9 @@ import useStore from '../../../store/store';
 
 function ShawCard({image, title, info, price, isSpicy}) {
 
-    const addToOrder = useStore((state) => state.addToOrder);
-    const handleButtonClick = () => {
-        const item = { title, price, image};
-
-        addToOrder(item);
-    };
 
   return (
-    <div className="shaw-card" onClick={handleButtonClick}>
+    <div className="shaw-card">
         <div className='shaw-card__wrapper'>
             <picture className='imgWrapper'>
                 <img src={image} alt='' width='115' height='77'/>

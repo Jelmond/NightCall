@@ -16,8 +16,8 @@ function App() {
     <div className="App">
         <Layout>
             {/* <ShawBox/> */}
-            {/* <KFC></KFC> */}
-            <Mac></Mac>
+            <KFC></KFC>
+            {/* <Mac></Mac> */}
             <Drinks></Drinks>
             <Bucket></Bucket>
         </Layout>

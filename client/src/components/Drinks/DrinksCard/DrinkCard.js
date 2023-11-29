@@ -5,16 +5,8 @@ import useStore from '../../../store/store';
 
 function DrinkCard({image, title, info, price}) {
 
-    const addToOrder = useStore((state) => state.addToOrder);
-    
-    const handleButtonClick = () => {
-        const item = { title, price, image};
-
-        addToOrder(item);
-    };
-
   return (
-    <div className="drink-card" onClick={handleButtonClick}>
+    <div className="drink-card">
         <div className='drink-card__wrapper'>
             <picture className='imgWrapper'>
                 <img src={image} alt='' width='115' height='77'/>
