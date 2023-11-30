@@ -4,8 +4,40 @@
 .bucket{
     display: flex;
     flex-direction: column;
-    padding: rm(64);
+    padding: rm(64) rm(32);
+    color: white;
     
+    .title-container{
+        display: flex;
+        align-items: center;
+        gap: rm(5);
+        width: rm(300);
+        margin-right: rm(10);
+    }
+
+    .bucket-button{
+        border-radius: rm(50);
+        border: 1px solid black;
+        padding: rm(6) rm(12);
+        cursor: pointer;
+        transition: opacity .7s ease-in-out;
+        font-size: font(24);
+
+        &:hover{
+            opacity: .7;
+        }
+    }
+
+
+    .bucket-minus{
+        padding: rm(6) rm(14);
+        margin-right: rm(15);
+    }
+
+    .bucket-plus{
+
+    }
+
     input{
         margin-top: rm(20);
         background: none;
@@ -62,11 +94,11 @@
         &__section{
             display: flex;
             align-items: center;
-            justify-content: space-between;
 
             .choose{
                 color: white;
                 font-size: font(20);
+                width: rm(60);
             }
 
             >:first-child{
@@ -75,7 +107,7 @@
 
                 img{
                     width: rm(120);
-                    height: rm(120);
+                    height: rm(80);
                     margin-right: rm(9);
                 }
     

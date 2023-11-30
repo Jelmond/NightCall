@@ -10,10 +10,20 @@ function PriceButton({ children, title, price, image, isSpicy}) {
     const [isClicked, setIsClicked] = useState(false)
 
     const addToOrder = useStore((state) => state.addToOrder);
+
+
+    const toastIndicator = useStore((state) => (state.toastIndicator))
+
+
+
+
     const handleButtonClick = () => {
         const spice = isSpicy ? !isClicked : false
 
         const item = { title, price, image, spice};
+
+
+        useStore.setState({toastIndicator: toastIndicator + 1})
 
         addToOrder(item);
     };

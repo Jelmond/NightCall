@@ -23,7 +23,7 @@ function Header() {
                 <p>С 23.00 до 05.00</p>
                 <p>прием заказов</p>
             </div>
-            <img src={bucketImage} alt="" width='28' height='27' onClick={handleClick}/>
+            <img className='bucket-image' src={bucketImage} alt="" width='28' height='27' onClick={handleClick}/>
         </div>
     </div>
   );

@@ -11,6 +11,10 @@
     left: 0;
     width: 100%;
 
+    .bucket-image{
+        cursor: pointer;
+    }
+
     &__right{
         display: flex;
         align-items: center;

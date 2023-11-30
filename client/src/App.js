@@ -9,8 +9,23 @@ import KFC from './components/KFC/KFC';
 import Mac from './components/Mac/Mac';
 import Drinks from './components/Drinks/Drinks';
 import Bucket from './components/Bucket/Bucket';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useStore from './store/store';
+import { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
+  const toastIndicator = useStore((state) => (state.toastIndicator))
+
+  const [toastIndex, setToastIndex] = useState(0)
+
+  useEffect(() => {
+    if(toastIndicator != toastIndex) {
+        toast.success('Товар успешно добавлен в коризну');
+        setToastIndex(toastIndex + 1)
+    }
+  }, [toastIndicator])
 
   return (
     <div className="App">
@@ -21,6 +36,7 @@ function App() {
             <Drinks></Drinks>
             <Bucket></Bucket>
         </Layout>
+        <ToastContainer />
     </div>
   );
 }

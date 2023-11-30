@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Bucket.scss'
 import useStore from '../../store/store';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Bucket() {
   
@@ -37,6 +40,8 @@ function Bucket() {
     }]
 
     tg.sendData(JSON.stringify(tgData))
+
+    toast.success('Заказ успешно отформлен');
   }
 
   const onChange = (e) => {
@@ -55,7 +60,8 @@ function Bucket() {
         <div className='bucket__information'>
           {order.map((element, index) => (
               <div key={index} className='bucket__information__section'>
-                  <div>
+
+                  <div className='title-container'>
                     <img src={element.image} alt='' width={60} height={60}/>
                     <p>{element.title}</p>
                   </div>
@@ -64,6 +70,12 @@ function Bucket() {
                       {/* <div></div> */}
                       {/* <p></p> */}
                       {/* <div></div> */}
+                  </div>
+                  <div className='bucket-minus bucket-button'>
+                      -
+                  </div>
+                  <div className='bucket-plus bucket-button'>
+                      +
                   </div>
               </div>
           ))}
