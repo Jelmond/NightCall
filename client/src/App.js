@@ -34,6 +34,11 @@ function App() {
             <KFC></KFC>
             {/* <Mac></Mac> */}
             <Drinks></Drinks>
+            <div className='line-bucket'>
+              <p className='buc'>
+                Корзина
+              </p>
+            </div>
             <Bucket></Bucket>
         </Layout>
         <ToastContainer />

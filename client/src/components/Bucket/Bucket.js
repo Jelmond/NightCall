@@ -48,6 +48,9 @@ function Bucket() {
     setAdress(e.target.value)
   }
 
+  const removeFromOrderByTitle = useStore((state) => (state.removeFromOrderByTitle))
+
+
   return (
 
     <div className='bucket'>
@@ -60,7 +63,9 @@ function Bucket() {
         <div className='bucket__information'>
           {order.map((element, index) => (
               <div key={index} className='bucket__information__section'>
-
+                  <div className='delete' onClick={() => removeFromOrderByTitle(element.title)}>
+                    x
+                  </div>
                   <div className='title-container'>
                     <img src={element.image} alt='' width={60} height={60}/>
                     <p>{element.title}</p>
@@ -83,10 +88,18 @@ function Bucket() {
         <input value={adress} onChange={onChange} placeholder='Введите адрес доставки'/>
         <div className='bucket__price'>
             <p>
+              Цена доставки:
+            </p>
+            <p>
+              4214214p
+            </p>
+        </div>
+        <div className='bucket__price'>
+            <p>
               Итоговая цена:
             </p>
             <p>
-              {thePrice}p
+              {Math.floor(thePrice)}p
             </p>
         </div>
         <button className='bucket__over' onClick={handleOver}>Оформить заказ</button>

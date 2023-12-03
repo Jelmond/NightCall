@@ -18,6 +18,10 @@
         display: flex;
         gap: rm(5);
         color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: rm(20);
 
         margin-top: rm(-35);
         margin-bottom: rm(35);
@@ -27,12 +31,19 @@
             cursor: pointer;
         }
 
-        p:not(:first-child){
-            border-left: 1px solid white;
-            padding-left: rm(5);
+        div{
+            display: flex;
 
+            p:not(:first-child){
+                border-left: 1px solid white;
+                padding-left: rm(5);
+            }
 
+            p:not(:last-child){
+            padding-right: rm(5);
+            }
         }
+
     }
 
     .semiTitle{

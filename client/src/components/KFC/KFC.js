@@ -100,18 +100,22 @@ function KFC() {
         <p className="shaw-box__title">KFC</p>
         <img src={KFCLogo} alt='' width='42' height='51' className='shaw-box__logo'/>
         <div className='navigation'>
-            <p onClick={() => handleScroll('бургеры')}>
-                Бургеры с говядиной
-            </p>
-            <p onClick={() => handleScroll('твистеры')}>
-                Бургеры с курицей
-            </p>
-            <p onClick={() => handleScroll('курица')}>
-                Роллы
-            </p>
-            <p onClick={() => handleScroll('снэки')}>
-                Картошка и снэки
-            </p>
+            <div>
+                <p onClick={() => handleScroll('бургеры')}>
+                    Бургеры с говядиной
+                </p>
+                <p onClick={() => handleScroll('твистеры')}>
+                    Бургеры с курицей
+                </p>
+            </div>
+            <div>
+                <p onClick={() => handleScroll('курица')}>
+                    Роллы
+                </p>
+                <p onClick={() => handleScroll('снэки')}>
+                    Картошка и снэки
+                </p>
+            </div>
         </div>
         <div>
         <div className="shaw-box__container" ref={burgersRef}>

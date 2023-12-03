@@ -4,29 +4,9 @@ import penImage from '../../Icon/Icons/Group 99.png'
 import useStore from '../../../store/store';
 import { useState } from 'react';
 
-function PriceButton({ children, title, price, image, isSpicy}) {
+function PriceButton({ children, title, price, image, isSpicy, handler, isClicked}) {
 
 
-    const [isClicked, setIsClicked] = useState(false)
-
-    const addToOrder = useStore((state) => state.addToOrder);
-
-
-    const toastIndicator = useStore((state) => (state.toastIndicator))
-
-
-
-
-    const handleButtonClick = () => {
-        const spice = isSpicy ? !isClicked : false
-
-        const item = { title, price, image, spice};
-
-
-        useStore.setState({toastIndicator: toastIndicator + 1})
-
-        addToOrder(item);
-    };
 
 
     return (
@@ -34,7 +14,7 @@ function PriceButton({ children, title, price, image, isSpicy}) {
             <div>
                 {
                     isSpicy ? 
-                <div style={{cursor: 'pointer'}} className='pen-img' onClick={() => {setIsClicked(!isClicked)}}>
+                <div style={{cursor: 'pointer'}} className='pen-img' onClick={handler}>
                     <svg  style={isClicked ? { display: 'none'} : {display: 'inline-block'}} width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_729_1395)">
                         <path d="M6.1828 0.0298381C5.99401 0.11112 5.97042 0.273683 6.09627 0.588321C6.65475 1.97535 6.2903 3.39909 5.02388 4.77826C4.8115 5.00899 4.74595 5.11387 4.68826 5.30528C4.5729 5.70644 4.77741 6.25968 5.19168 6.6556C5.33065 6.78932 5.60858 6.99384 5.65053 6.99384C5.6584 6.99384 5.67413 6.85225 5.68462 6.6792C5.73444 5.78772 6.12511 5.09027 6.88811 4.53179C7.01921 4.43478 7.60653 4.10965 7.64586 4.10965C7.65373 4.10965 7.62751 4.21453 7.58818 4.34038C7.38629 4.96442 7.36269 5.62516 7.52263 6.06827C7.59605 6.27017 7.72977 6.49566 7.83989 6.60316L7.92117 6.68182L8.14142 6.47468C8.65271 5.98961 9.01979 5.29479 9.12467 4.60258C9.19546 4.14374 9.14564 3.47251 9.00143 2.94287C8.69728 1.82066 7.853 0.816434 6.65738 0.153071C6.35323 -0.0147357 6.3139 -0.0252233 6.1828 0.0298381Z" fill="#CCFF00"/>
@@ -76,8 +56,8 @@ function PriceButton({ children, title, price, image, isSpicy}) {
                 </div>
                 : <div className='pen-img-s'></div>
                 }
-                <p onClick={handleButtonClick}>{children} Br.</p>
-                <svg onClick={handleButtonClick} className='button-img' width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <p>{children} Br.</p>
+                <svg className='button-img' width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8.96222 0H1.03778C0.641044 0 0.377042 0.274848 0.377042 0.68788L0 10.3129C0 10.7252 0.264002 11 0.660006 11H9.33926C9.73527 11 10 10.7252 10 10.3129L9.6215 0.68788C9.6215 0.274848 9.35823 0 8.96222 0ZM7.64148 3.43788C7.63937 4.16655 7.36039 4.86474 6.86547 5.37999C6.37056 5.89524 5.69991 6.18568 5 6.18788C4.29996 6.18588 3.62913 5.89553 3.13406 5.38026C2.63898 4.86499 2.35991 4.16668 2.35779 3.43788V2.75H3.6778V3.43788C3.6778 4.19409 4.2729 4.81212 4.99927 4.81212C5.72564 4.81212 6.31928 4.19409 6.31928 3.43788V2.75H7.64075L7.64148 3.43788Z" fill="white"/>
                 </svg>
             </div>
