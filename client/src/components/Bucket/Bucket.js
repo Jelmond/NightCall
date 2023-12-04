@@ -30,7 +30,7 @@ function Bucket() {
       order.forEach(element => {
         totalPrice += element.price;
       });
-      return totalPrice / 1;
+      return Math.round(totalPrice * 100) / 100;
     });
   }, [order]);
 
