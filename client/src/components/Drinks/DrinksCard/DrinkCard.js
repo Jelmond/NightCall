@@ -7,7 +7,6 @@ import { useState } from 'react';
 function DrinkCard({image, title, info, price}) {
 
     const addToOrder = useStore((state) => state.addToOrder);
-    const toastIndicator = useStore((state) => (state.toastIndicator))
 
     const spice = false
 
@@ -15,8 +14,6 @@ function DrinkCard({image, title, info, price}) {
     const handleButtonClick = () => {
         const item = { title, price, image, spice};
 
-
-        useStore.setState({toastIndicator: toastIndicator + 1})
 
         addToOrder(item);
     };

@@ -4,14 +4,17 @@ const useStore = create((set) => ({
     order: [],
     loadedTitles: new Set(),
     addToOrder: (item) => {
+
       set((state) => {
         if (!state.loadedTitles.has(item.title)) {
           const updatedOrder = [...state.order, item];
           const updatedTitles = new Set(state.loadedTitles);
+          const toastIndicator = state.toastIndicator
+        
 
           updatedTitles.add(item.title);
-  
-          return { order: updatedOrder, loadedTitles: updatedTitles};
+
+          return { order: updatedOrder, loadedTitles: updatedTitles, toastIndicator: toastIndicator + 1};
         }
         return state;
       });
@@ -28,6 +31,11 @@ const useStore = create((set) => ({
     
           return { order: newOrder, loadedTitles: updatedTitles };
         });
+      },
+    clearOrder: () => {
+        set((state) => {
+            return { order: [], loadedTitles: new Set() };
+          });
       },
       addDuplicateItemByTitle: (title) => {
         set((state) => {

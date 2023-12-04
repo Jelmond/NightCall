@@ -18,10 +18,12 @@ function Bucket() {
   const items = useStore((state) => (state.loadedItems))
   const [thePrice, setThePrice] = useState(0)
   const [adress, setAdress] = useState('')
+  const clearOrder = useStore((state) => (state.clearOrder))
+
 
   const handleCleaner = (e) => {
     e.preventDefault()
-    useStore.setState({order: []})
+    clearOrder()
   }
 
   useEffect(() => {

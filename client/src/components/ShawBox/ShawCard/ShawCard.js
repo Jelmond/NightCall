@@ -9,8 +9,6 @@ function ShawCard({image, title, info, price, isSpicy}) {
     const [isClicked, setIsClicked] = useState(false)
 
     const addToOrder = useStore((state) => state.addToOrder);
-    const toastIndicator = useStore((state) => (state.toastIndicator))
-
 
 
 
@@ -19,8 +17,6 @@ function ShawCard({image, title, info, price, isSpicy}) {
 
         const item = { title, price, image, spice};
 
-
-        useStore.setState({toastIndicator: toastIndicator + 1})
 
         addToOrder(item);
     };
