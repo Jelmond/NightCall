@@ -90,18 +90,22 @@ function Mac() {
         <p className="mac__title">Mac.by</p>
         <img src={MacLogo} alt='' width='42' height='51' className='mac__logo'/>
         <div className='navigation'>
-            <p onClick={() => handleScroll('говядина')}>
-                Бургеры с говядиной
-            </p>
-            <p onClick={() => handleScroll('курица')}>
-                Бургеры с курицей
-            </p>
-            <p onClick={() => handleScroll('роллы')}>
-                Роллы
-            </p>
-            <p onClick={() => handleScroll('картошка')}>
-                Картошка и снэки
-            </p>
+            <div>
+                <p onClick={() => handleScroll('говядина')}>
+                    Бургеры с говядиной
+                </p>
+                <p onClick={() => handleScroll('курица')}>
+                    Бургеры с курицей
+                </p>
+            </div>
+            <div>
+                <p onClick={() => handleScroll('роллы')}>
+                    Роллы
+                </p>
+                <p onClick={() => handleScroll('картошка')}>
+                    Картошка и снэки
+                </p>
+            </div>
         </div>
         <div className='semiTitle'>
             <svg width="5" height="11" viewBox="0 0 5 11" fill="none" xmlns="http://www.w3.org/2000/svg">

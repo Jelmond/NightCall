@@ -3,20 +3,3 @@
 .App{
     position: relative;
 }
-
-.line-bucket{
-    position: absolute;
-    bottom: rm(300);
-    left: rm(0);
-    padding: rm(20) rm(0);
-    padding-left: rm(100);
-    background-color: rgba(0, 0, 0, 0.20);
-    width: 100%;
-    margin-bottom: rm(60);
-    margin-top: rm(10);
-
-    p{
-        color: white;
-        font-size: font(24);
-    }
-}

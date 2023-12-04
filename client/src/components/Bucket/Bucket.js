@@ -3,6 +3,8 @@ import './Bucket.scss'
 import useStore from '../../store/store';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import bucketImage from './frames/bucketImage.png'
+import Section from './Section/Section';
 
 
 function Bucket() {
@@ -13,6 +15,7 @@ function Bucket() {
 
 
   const order = useStore((state) => state.order)
+  const items = useStore((state) => (state.loadedItems))
   const [thePrice, setThePrice] = useState(0)
   const [adress, setAdress] = useState('')
 
@@ -22,11 +25,14 @@ function Bucket() {
   }
 
   useEffect(() => {
-    setThePrice(0)
-    const wholePrice = order.map((element) => {
-      setThePrice(thePrice + element.price)
-    })
-  }, [order])
+    setThePrice(prevPrice => {
+      let totalPrice = 0;
+      order.forEach(element => {
+        totalPrice += element.price;
+      });
+      return totalPrice / 1;
+    });
+  }, [order]);
 
 
   const handleOver = (e) => {
@@ -36,7 +42,7 @@ function Bucket() {
     const tgData = [{
       order: order,
       adress: adress,
-      wholePrice: thePrice
+      wholePrice: thePrice + 8
     }]
 
     tg.sendData(JSON.stringify(tgData))
@@ -48,12 +54,22 @@ function Bucket() {
     setAdress(e.target.value)
   }
 
-  const removeFromOrderByTitle = useStore((state) => (state.removeFromOrderByTitle))
+  const uniqueOrder = Array.from(new Set(order.map(item => item.title))).map(title => {
+    return order.find(item => item.title === title);
+  });
 
 
+
+  
   return (
 
     <div className='bucket'>
+          <div className='line-bucket'>
+            <img src={bucketImage}/>
+            <p className='buc'>
+              Корзина
+            </p>
+          </div>
         <div className='bucket__text'>
           <p>
             Твой заказ
@@ -61,37 +77,17 @@ function Bucket() {
           <button onClick={handleCleaner}>Очистить корзину</button>
         </div>
         <div className='bucket__information'>
-          {order.map((element, index) => (
-              <div key={index} className='bucket__information__section'>
-                  <div className='delete' onClick={() => removeFromOrderByTitle(element.title)}>
-                    x
-                  </div>
-                  <div className='title-container'>
-                    <img src={element.image} alt='' width={60} height={60}/>
-                    <p>{element.title}</p>
-                  </div>
-                  <div className='choose'>
-                      <p>{element.price}p</p>
-                      {/* <div></div> */}
-                      {/* <p></p> */}
-                      {/* <div></div> */}
-                  </div>
-                  <div className='bucket-minus bucket-button'>
-                      -
-                  </div>
-                  <div className='bucket-plus bucket-button'>
-                      +
-                  </div>
-              </div>
+          {uniqueOrder.map((element, index) => (
+            <Section key={index} data={element}/>
           ))}
         </div>
-        <input value={adress} onChange={onChange} placeholder='Введите адрес доставки'/>
+        <input value={adress} onChange={onChange} placeholder='Введите промокод'/>
         <div className='bucket__price'>
             <p>
               Цена доставки:
             </p>
             <p>
-              4214214p
+              8р
             </p>
         </div>
         <div className='bucket__price'>
@@ -99,7 +95,7 @@ function Bucket() {
               Итоговая цена:
             </p>
             <p>
-              {Math.floor(thePrice)}p
+              {thePrice + 8}p
             </p>
         </div>
         <button className='bucket__over' onClick={handleOver}>Оформить заказ</button>

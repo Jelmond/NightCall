@@ -2,24 +2,58 @@ import { create } from 'zustand';
 
 const useStore = create((set) => ({
     order: [],
-    addToOrder: (item) => set((state) => ({ order: [...state.order, item] })),
-    removeFromOrder: (title) =>
-        set((state) => ({
-            order: state.order.filter((item) => item.title !== title),
-        })),
+    loadedTitles: new Set(),
+    addToOrder: (item) => {
+      set((state) => {
+        if (!state.loadedTitles.has(item.title)) {
+          const updatedOrder = [...state.order, item];
+          const updatedTitles = new Set(state.loadedTitles);
+
+          updatedTitles.add(item.title);
+  
+          return { order: updatedOrder, loadedTitles: updatedTitles};
+        }
+        return state;
+      });
+    },
     addItem: (item, title) => {
         set((state) => ({ order: [...state.order, item] }));
     },
     removeFromOrderByTitle: (title) => {
         set((state) => {
-            const indexToRemove = state.order.findIndex(
-                (item) => item.title === title
-            );
-            if (indexToRemove !== -1) {
-                const newOrder = [
-                    ...state.order.slice(0, indexToRemove),
-                    ...state.order.slice(indexToRemove + 1),
+          const newOrder = state.order.filter((item) => !item.title.includes(title));
+          
+          const updatedTitles = new Set(state.loadedTitles);
+          updatedTitles.delete(title);
+    
+          return { order: newOrder, loadedTitles: updatedTitles };
+        });
+      },
+      addDuplicateItemByTitle: (title) => {
+        set((state) => {
+            const existingItemIndex = state.order.findIndex((item) => item.title === title);
+            
+            if (existingItemIndex !== -1) {
+                const newItem = { ...state.order[existingItemIndex] };
+                const updatedOrder = [
+                    ...state.order.slice(0, existingItemIndex + 1),
+                    newItem,
+                    ...state.order.slice(existingItemIndex + 1),
                 ];
+                
+                return { order: updatedOrder };
+            }
+    
+            return state;
+        });
+    },
+      removeFirstItemByTitle: (title) => {
+        set((state) => {
+            const newOrder = state.order.slice();
+    
+            const indexToRemove = state.order.findIndex((item) => item.title === title);
+            if (indexToRemove !== -1) {
+                newOrder.splice(indexToRemove, 1);
                 return { order: newOrder };
             }
             return state;
