@@ -14,7 +14,7 @@ function ShawCard({image, title, info, price, isSpicy}) {
 
     const handleButtonClick = () => {
         const spice = isSpicy ? !isClicked : false
-        const titleDetector = spice ? title + ' Острые' : title
+        const titleDetector = spice ? title + ' spicy' : title
 
         const item = { title: titleDetector, price, image, spice};
 
