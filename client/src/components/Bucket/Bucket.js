@@ -18,6 +18,7 @@ function Bucket() {
   const items = useStore((state) => (state.loadedItems))
   const [thePrice, setThePrice] = useState(0)
   const [adress, setAdress] = useState('')
+  const [promocod, setPromocod] = useState('')
   const clearOrder = useStore((state) => (state.clearOrder))
 
 
@@ -44,6 +45,7 @@ function Bucket() {
     const tgData = [{
       order: order,
       adress: adress,
+      promocod: promocod,
       wholePrice: thePrice + 8
     }]
 
@@ -52,8 +54,12 @@ function Bucket() {
     toast.success('Заказ успешно отформлен');
   }
 
-  const onChange = (e) => {
+  const onChangeAdress = (e) => {
     setAdress(e.target.value)
+  }
+
+  const onChangePromo = (e) => {
+    setPromocod(e.target.value)
   }
 
   const uniqueOrder = Array.from(new Set(order.map(item => item.title))).map(title => {
@@ -83,7 +89,8 @@ function Bucket() {
             <Section key={index} data={element}/>
           ))}
         </div>
-        <input value={adress} onChange={onChange} placeholder='Введите промокод'/>
+        <input value={promocod} onChange={onChangePromo} placeholder='Введите промокод'/>
+        <input value={adress} className='adress' onChange={onChangeAdress} placeholder='Введите свой адрес, квартиру, подьезд'/>
         <div className='bucket__price'>
             <p>
               Цена доставки:

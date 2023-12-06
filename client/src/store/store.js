@@ -6,6 +6,7 @@ const useStore = create((set) => ({
     addToOrder: (item) => {
 
       set((state) => {
+        console.log(item.title)
         if (!state.loadedTitles.has(item.title)) {
           const updatedOrder = [...state.order, item];
           const updatedTitles = new Set(state.loadedTitles);
