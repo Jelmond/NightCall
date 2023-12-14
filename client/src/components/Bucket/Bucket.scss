@@ -65,7 +65,15 @@
     }
 
     .adress{
+        border: 1px white solid !important;  
+        opacity: 1 !important;
+        padding: rm(10);
+        margin: rm(40) rm(0) rm(20) rm(0);
         
+        &::placeholder{
+            color: white;
+            font-size: font(22);
+        }
     }
 
     input{
