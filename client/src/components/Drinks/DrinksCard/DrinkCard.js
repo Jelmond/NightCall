@@ -4,7 +4,7 @@ import useStore from '../../../store/store';
 import { useState } from 'react';
 
 
-function DrinkCard({image, title, info, price}) {
+function DrinkCard({image, title, info, price, ids}) {
 
     const addToOrder = useStore((state) => state.addToOrder);
 
@@ -12,7 +12,7 @@ function DrinkCard({image, title, info, price}) {
 
 
     const handleButtonClick = () => {
-        const item = { title, price, image, spice};
+        const item = { title, price, image, spice, ids};
 
 
         addToOrder(item);

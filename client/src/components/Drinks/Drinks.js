@@ -14,10 +14,10 @@ import { useEffect, useRef } from 'react';
 function Drinks() {
   
     const cards = [
-        [cola, 'Кока кола 0.5', 4.00],
-        [colaSugar, 'Кока-кола без сахара (0,5)', 4.00],
-        [sprite, 'Спрайт (0,5)', 4.00],
-        [fanta, 'Фанта (0,5)', 4.00],
+        [cola, 'Кока кола 0.5', 4.00, false, 'Cola'],
+        [colaSugar, 'Кока-кола без сахара (0,5)', 4.00, false, 'ColaZ'],
+        [sprite, 'Спрайт (0,5)', 4.00, false, 'Sprite'],
+        [fanta, 'Фанта (0,5)', 4.00, false, 'Fanta'],
     ]
 
     const bucketRef = useRef(null)
@@ -49,7 +49,7 @@ function Drinks() {
         </div>
         <div className="drinks__container">
             {cards.map((card) => (
-                <DrinkCard image={card[0]} title={card[1]} price={card[2]} key={card[1]}/>
+                <DrinkCard image={card[0]} title={card[1]} price={card[2]} key={card[1]} ids={card[4]}/>
             ))}
         </div>
         <p className='difference'>

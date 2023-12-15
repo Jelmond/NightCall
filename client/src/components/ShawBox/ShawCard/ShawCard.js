@@ -4,7 +4,7 @@ import useStore from '../../../store/store';
 import { useState } from 'react';
 
 
-function ShawCard({image, title, info, price, isSpicy}) {
+function ShawCard({image, title, info, price, isSpicy, ids}) {
 
     const [isClicked, setIsClicked] = useState(false)
 
@@ -16,7 +16,7 @@ function ShawCard({image, title, info, price, isSpicy}) {
         const spice = isSpicy ? !isClicked : false
         const titleDetector = spice ? title + ' spicy' : title
 
-        const item = { title: titleDetector, price, image, spice};
+        const item = { title: titleDetector, price, image, spice, ids};
 
 
         addToOrder(item);
