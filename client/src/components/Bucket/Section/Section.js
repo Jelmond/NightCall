@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useStore from "../../../store/store"
 
 export default function Section ({data}) {
@@ -6,25 +6,40 @@ export default function Section ({data}) {
     const addDuplicateItemByTitle = useStore((state) => ( state.addDuplicateItemByTitle))
     const removeFirstItemByTitle = useStore((state) => (state.removeFirstItemByTitle))
     const removeFromOrderByTitle = useStore((state) => (state.removeFromOrderByTitle))
+    const updateAmountByTitle = useStore((state) => (state.updateAmountByTitle))
+
+    // const [amount, setAmount] = useState(1)
+
+    const amount = useStore((state) => state.amounts[data.title] || 1);
 
     const handleAdd = () => {
-        setAmount(amount + 1)
+        const newAmount = amount + 1;
+        updateAmountByTitle(data.title, newAmount);
         addDuplicateItemByTitle(data.title)
     }
 
     const handleRemove = () => {
-        if(amount !== 1) {
-            setAmount(amount - 1)
+        if(amount > 1) {
+            const newAmount = amount - 1;
+            updateAmountByTitle(data.title, newAmount);
             removeFirstItemByTitle(data.title)
         }
     }
 
-    const [amount, setAmount] = useState(1)
+    const handleDelete = () => {
+        removeFromOrderByTitle(data.title)
+        updateAmountByTitle(data.title, 1);
+    }
+
+    useEffect(() => {
+        console.log(amount)
+    }, [amount])
+
 
     return(
         <div className={`${data.price > 4.3 ? 'bucket__information__section' : 'buc'}`}>
             <div className='firstBuc'>
-            <div className='delete' onClick={() => removeFromOrderByTitle(data.title)}>
+            <div className='delete' onClick={handleDelete}>
                 x
             </div>
             <div className='title-container'>
